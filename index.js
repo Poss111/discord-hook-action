@@ -1,5 +1,4 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 const discordPayload = require('./discord-build-success-webhook');
 const https = require('https');
 
@@ -15,6 +14,7 @@ let main = async () => {
         let triggeredBy = core.getInput('triggeredBy');
         let actionUrl = core.getInput('actionUrl');
         if (process.env.LOCAL) {
+            console.log('Running in local.');
             discordWebhookUrl = process.env.discordWebhookUrl;
             title = process.env.title;
             message = process.env.message;
@@ -24,6 +24,8 @@ let main = async () => {
             buildNumber = process.env.buildNumber;
             triggeredBy = process.env.triggeredBy;
         }
+        console.log('Input Parameters given.');
+        console.log('----------------------------------');
         console.log(`Url > ${discordWebhookUrl}`);
         console.log(`Title > ${title}`);
         console.log(`Message > ${message}`);
@@ -47,8 +49,6 @@ let main = async () => {
 
         let hostname = discordWebhookUrl.substring(discordWebhookUrl.indexOf("/", 7) + 1, discordWebhookUrl.indexOf("/", 8));
         let path = discordWebhookUrl.substring(discordWebhookUrl.indexOf("/", 8), discordWebhookUrl.length);
-        console.log(hostname);
-        console.log(path);
 
         const options = {
             hostname: hostname,
@@ -91,9 +91,10 @@ let main = async () => {
             req.end();
         });
         let successful = await promise;
+        if(successful !== true) {
+            successful = false;
+        }
         core.setOutput("successful", successful);
-        const gitPayload = JSON.stringify(github.context.payload, undefined, 2);
-        console.log(`The event payload: ${gitPayload}`);
     } catch (error) {
         core.setFailed(error.message);
     }
