@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to test out the discord github hook action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Hello world action step
+        uses: ./
+        id: hello
+        with:
+          discord-hook-url: 'Test Url'
+      - name: Get the output time
+        run: echo "The job was successful ran > ${{ steps.hello.outputs.successful }}"
