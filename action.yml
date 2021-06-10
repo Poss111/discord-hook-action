@@ -1,4 +1,5 @@
   name: 'Discord Hook Action'
+  author: 'Poss111'
   description: 'Send a discord embedded message to your server through a webhook'
   inputs:
     discord-hook-url:
@@ -42,3 +43,6 @@
   runs:
     using: 'node12'
     main: 'index.js'
+  branding:
+    icon: 'arrow-up-circle'
+    color: 'blue'
