@@ -7,10 +7,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Test Step for Discord Action
         uses: ./
         id: hello
         with:
-          discord-hook-url: 'Test Url'
+          discord-hook-url: 'index.js'
       - name: Get the output time
         run: echo "The job was successful ran > ${{ steps.hello.outputs.successful }}"
