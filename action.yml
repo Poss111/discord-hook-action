@@ -16,6 +16,22 @@
       description: 'Color to be given alongside embedded message'
       required: false
       default: ''
+    branch:
+      description: 'The git branch for the build'
+      required: false
+      default: "${{ github.ref }}"
+    sha:
+      description: 'The sha of the git commit being built'
+      required: false
+      default: "${{ github.sha }}"
+    buildNumber:
+      description: 'The build number of the current action'
+      required: false
+      default: "${{ github.run_id }}"
+    triggeredBy:
+      description: 'Who has triggered this action'
+      required: false
+      default: "${{ github.actor }}"
   outputs:
     successful:
       description: 'Was the message successfully sent'

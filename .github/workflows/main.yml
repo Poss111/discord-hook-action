@@ -9,9 +9,9 @@ jobs:
         id: discordAction
         uses: Poss111/discord-hook-action@v1.4
         with:
-          discord-hook-url: 'Test Url'
+          discord-hook-url: 'https://discord.com/api/webhooks/852537958511018014/3WO4OYHuUcI20LzmkdO9G1CJgI1KqhtbhZIrZXpqsuJl2PawOuVLl8YEqEsNU2rbb2Jq'
           title: 'Sample Title'
           message: 'Sample Message'
-          messageColor: '123456'
+          message-color: '65345'
       - name: Was Job Successful
         run: echo "The job was successful ran > ${{ steps.discordAction.outputs.successful }}"
