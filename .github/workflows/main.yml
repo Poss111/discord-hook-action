@@ -10,5 +10,5 @@ jobs:
         uses: Poss111/discord-hook-action@v1.3
         with:
           discord-hook-url: 'index.js'
-      - name: Get the output time
-        run: echo "The job was successful ran > ${{ steps.hello.outputs.successful }}"
+      - name: Was Job Successful
+        run: echo "The job was successful ran > ${{ steps.discordAction.outputs.successful }}"
