@@ -1,7 +1,7 @@
 {
   "name": "discord-action",
   "version": "1.0.0",
-  "description": "A discord webhook action to post messages about your github build to a dicsord server.",
+  "description": "A discord webhook action to post messages about your github build to a dicsord server. Awesome!",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --coverageReporters=\"json\" --coverageReporters=\"json-summary\" --coverageReporters=\"lcov\" --coverageReporters=\"text\""
