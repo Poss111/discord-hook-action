@@ -1,0 +1,17 @@
+{
+  "name": "discord-action",
+  "version": "1.0.0",
+  "description": "A discord webhook action to post messages about your github build to a dicsord server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --coverageReporters=\"json\" --coverageReporters=\"json-summary\" --coverageReporters=\"lcov\" --coverageReporters=\"text\""
+  },
+  "keywords": [],
+  "author": "Daniel Poss",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {}
+}

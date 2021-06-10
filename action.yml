@@ -1,0 +1,29 @@
+  name: 'Discord Hook Action'
+  description: 'Send a discord embedded message to your server through a webhook'
+  inputs:
+    discord-hook-url:
+      description: 'The webhook url created for your discord server to post your expected message to.'
+      required: true
+    title:
+      description: 'Title to be given to your embedded message'
+      required: false
+      default: 'Github Build'
+    message:
+      description: 'Message to be given with embedded message'
+      required: false
+      default: 'Github build information'
+    message-color:
+      description: 'Color to be given alongside embedded message'
+      required: false
+      default: ''
+  outputs:
+    successful:
+      description: 'Was the message successfully sent'
+  runs:
+      using: 'docker'
+      image: 'Dockerfile'
+      args:
+        - ${{ inputs.discord-hook-url }}
+        - ${{ inputs.title }}
+        - ${{ inputs.message }}
+        - ${{ inputs.message-color }}
