@@ -35,7 +35,7 @@
     actionUrl:
       description: 'The link to the job being built'
       required: false
-      default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      default: 'https://github.com'
   outputs:
     successful:
       description: 'Was the message successfully sent'
