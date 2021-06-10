@@ -35,7 +35,7 @@
     actionUrl:
       description: 'The link to the job being built'
       required: false
-      default: 'https://github.com'
+      default: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
   outputs:
     successful:
       description: 'Was the message successfully sent'
