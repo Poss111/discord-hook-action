@@ -8,8 +8,8 @@
 - [Inputs](#Inputs)  
 - [Outputs](#Outputs)   
 - [Usage](#Usage)   
-- [Discord Message Example](#Discord Message Example)   
-- [Final Notes](#Final Notes)   
+- [Discord Message Example](#discord-message-example)   
+- [Final Notes](#final-notes)   
 
 ## Inputs
 
@@ -59,7 +59,7 @@ Here is a quick snippet to speed up integrating this into your workflow. ***NOTE
 
 ## Discord Message Example
 
-<a id="Discord Message Example"></a>
+<a id="discord-message-example"></a>
 
 Here is a sample of what your message may look like once posted to your sever.
 
@@ -67,7 +67,7 @@ Here is a sample of what your message may look like once posted to your sever.
 
 ## Final Notes
 
-<a id="Final Notes"></a>
+<a id="final-notes"></a>
 
 If you have any bugs or enhancements with the action, please post them along with the following details
 For Bugs
