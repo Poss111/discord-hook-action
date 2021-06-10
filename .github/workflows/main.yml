@@ -7,8 +7,11 @@ jobs:
     steps:
       - name: Test Step for Discord Action
         id: discordAction
-        uses: Poss111/discord-hook-action@v1.3
+        uses: Poss111/discord-hook-action@v1.4
         with:
-          discord-hook-url: 'index.js'
+          discord-hook-url: 'Test Url'
+          title: 'Sample Title'
+          message: 'Sample Message'
+          messageColor: '123456'
       - name: Was Job Successful
         run: echo "The job was successful ran > ${{ steps.discordAction.outputs.successful }}"
