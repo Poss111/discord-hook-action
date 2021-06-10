@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Test Step for Discord Action
         id: discordAction
-        uses: ./
+        uses: Poss111/discord-hook-action@v1.1
         with:
           discord-hook-url: 'index.js'
       - name: Get the output time
