@@ -1,15 +1,13 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  testDiscordActionJob:
     runs-on: ubuntu-latest
     name: A job to test out the discord github hook action
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Test Step for Discord Action
+        id: discordAction
         uses: ./
-        id: hello
         with:
           discord-hook-url: 'index.js'
       - name: Get the output time
