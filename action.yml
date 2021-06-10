@@ -20,10 +20,5 @@
     successful:
       description: 'Was the message successfully sent'
   runs:
-      using: 'docker'
-      image: 'Dockerfile'
-      args:
-        - ${{ inputs.discord-hook-url }}
-        - ${{ inputs.title }}
-        - ${{ inputs.message }}
-        - ${{ inputs.message-color }}
+    using: 'node14'
+    main: 'index.js'
