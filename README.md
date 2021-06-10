@@ -11,8 +11,10 @@
 - [Discord Message Example](#Discord Message Example)   
 - [Final Notes](#Final Notes)   
 
-<a name="Inputs"/>
 ## Inputs
+
+<a id="Inputs"></a>
+
 This is a simple discord hook action to send a message to your discord server upon building for real time notifications of build status.
 
 | Inputs | Optional | Description |
@@ -27,14 +29,18 @@ This is a simple discord hook action to send a message to your discord server up
 | triggeredBy | Yes | Who has triggered this action |
 | actionUrl | Yes | The link to the job being built |
 
-<a name="Outputs"/>
 ## Outputs
+
+<a id="Outputs"></a>
+
 | Outputs | Description |
 | -------- | ------ |
 | successful | Was the message successfully sent |
 
-<a name="Usage"/>
 ## Usage
+
+<a id="Usage"></a>
+
 Here is a quick snippet to speed up integrating this into your workflow. ***NOTE***: Replace the discord-hook-url with your server's webhook url
 ```yaml
     steps:
@@ -50,15 +56,19 @@ Here is a quick snippet to speed up integrating this into your workflow. ***NOTE
         run: echo "The job was successful ran > ${{ steps.discordAction.outputs.successful }}"
 ```
 
-<a name="Discord Message Example"/>
+
 ## Discord Message Example
+
+<a id="Discord Message Example"></a>
+
 Here is a sample of what your message may look like once posted to your sever.
 
 ![Sample Discord Embedded Message](SampleDiscordEmbeddedMessage.png)
 
-
-<a name="Final Notes"/>
 ## Final Notes
+
+<a id="Final Notes"></a>
+
 If you have any bugs or enhancements with the action, please post them along with the following details
 For Bugs
 1. A snippet of the failure output from the action
@@ -67,4 +77,4 @@ For Enhancements
 1. Sample output for change (If you want to modify the format of the card, you can propose one from here and post it with the issue [Discord Embedded Message Generator](https://cog-creators.github.io/discord-embed-sandbox))
 
 
-Thank you all! I hope you enjoy this action and use it well! :D
+# Thank you all! I hope you enjoy this action and use it well! :D
