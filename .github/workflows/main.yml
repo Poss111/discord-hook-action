@@ -16,7 +16,7 @@ jobs:
         id: discordAction
         uses: Poss111/discord-hook-action@v1.6.8
         with:
-          discord-hook-url: 'https://discord.com/api/webhooks/852537958511018014/3WO4OYHuUcI20LzmkdO9G1CJgI1KqhtbhZIrZXpqsuJl2PawOuVLl8YEqEsNU2rbb2Jq'
+          discord-hook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: 'Sample Title'
           message: 'Sample Message'
           message-color: '65345'
