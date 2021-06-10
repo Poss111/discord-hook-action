@@ -1,6 +1,6 @@
 # Discord Webhook Action
 
-***Author***        : @Poss111
+***Author***        : [Poss111](https://github.com/Poss111)
 
 ***Latest Version***: v1.6.5 [![CI](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml/badge.svg?branch=v1.6.5)](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml)
 
