@@ -22,6 +22,9 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
+      - name: Print Branch Name
+        run: echo build $steps.extract_branch.outputs.branch
+
       - uses: actions/checkout@v2
 
       - name: Cache node modules
