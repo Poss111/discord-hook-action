@@ -44,7 +44,7 @@ jobs:
 
       - name: Test Step for Discord Action
         id: discordAction
-        uses: Poss111/discord-hook-action@v1.6.9
+        uses: Poss111/discord-hook-action@v1.6.11
         with:
           discord-hook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: 'Sample Title'
