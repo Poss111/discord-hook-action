@@ -2,7 +2,7 @@
 
 ***Author***        : [Poss111](https://github.com/Poss111)
 
-***Latest Version***: v1.6.8 [![CI](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml/badge.svg?branch=v1.6.8)](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml)
+***Latest Version***: v1.6.9 [![CI](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml/badge.svg?branch=v1.6.9)](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml)
 
 ## Table of Contents
 - [Inputs](#Inputs)  
