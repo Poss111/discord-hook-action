@@ -57,22 +57,19 @@ class Utility {
 
                 res.on('end', () => {
                     if (res.statusCode !== 204) {
-                        console.error(data);
-                        reject(data);
+                        reject(`Failed to make call to Discord Webhook Status ('${res.statusCode}') Body => ${data}`);
                     } else {
                         resolve(true);
                     }
                 })
 
                 res.on('error', (err) => {
-                    console.error(err);
-                    reject(err);
+                    reject(`Failed to make call to Discord Webhook due to => ${JSON.stringify(err)}`);
                 })
             });
 
             req.on('error', (e) => {
-                console.error(e);
-                reject(e);
+                reject(`Failed to make call to Discord Webhook due to => ${JSON.stringify(e)}`);
             });
 
             req.write(JSON.stringify(payload));

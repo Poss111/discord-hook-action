@@ -4,29 +4,9 @@ const nock = require('nock');
 
 describe('Make call to DiscordWebhook.', () => {
 
-    beforeAll(() => {
-        // nock.activate();
-        console.log(`Nock active : ${nock.isActive()}`);
-        nock.disableNetConnect();
-
-        nock.recorder.rec({
-            output_objects: true,
-        });
-        let discordWebhookUrl = {
-            hostname: 'testUrl.com',
-            path: '/api/webhooks/852584010806329446/2cwT5MBSPSdLMbv_st4ZphOsQg_PILmE7wBr-6LM9u33sypLgOGG5fWHPelSHPT29IrE'
-        };
-
-        nock('https://' + discordWebhookUrl.hostname)
-            .post(discordWebhookUrl.path)
-            .reply(204, {
-                body: 'Nothing here'
-            });
-    });
-
     test('When I successfully call the Discord Webhook I should be returned a successful promise and a boolean of true', async () => {
         let discordWebhookUrl = {
-            hostname: 'testUrl.com',
+            hostname: 'discord.com',
             path: '/api/webhooks/852584010806329446/2cwT5MBSPSdLMbv_st4ZphOsQg_PILmE7wBr-6LM9u33sypLgOGG5fWHPelSHPT29IrE'
         };
         let title = 'Sample Title';
@@ -37,15 +17,78 @@ describe('Make call to DiscordWebhook.', () => {
         let buildNumber = '404';
         let triggeredBy = 'Pacman';
         let actionUrl = 'https://action.com/packed/url';
+
+        nock('https://' + discordWebhookUrl.hostname + ':443')
+            .post(discordWebhookUrl.path)
+            .reply(204, {
+                body: 'Nothing here'
+            });
         let payload = utility.buildDiscordEmbeddedMessage(title,
             message, messageColor, branch, sha, buildNumber, triggeredBy, actionUrl);
-
-        console.log(nock.recorder.play());
         return utility.executeDiscordWebhookPost(discordWebhookUrl, payload).then(data => {
             expect(data).toBeTruthy();
         }).catch(err => {
             expect(err).toBeFalsy();
-            console.log('Calls ' + nock.recorder.play());
+        });
+    });
+
+    test('When I fail to call the Discord Webhook I should be returned a rejected promise with an appropriate message stating code and url called.', async () => {
+        let discordWebhookUrl = {
+            hostname: 'discord.com',
+            path: '/api/webhooks/852584010806329446/2cwT5MBSPSdLMbv_st4ZphOsQg_PILmE7wBr-6LM9u33sypLgOGG5fWHPelSHPT29IrE'
+        };
+        let title = 'Sample Title';
+        let message = 'Sample Message';
+        let messageColor = '54321';
+        let branch = 'Branchy';
+        let sha = '123asdf098fdsa098fdsa098qwe';
+        let buildNumber = '404';
+        let triggeredBy = 'Pacman';
+        let actionUrl = 'https://action.com/packed/url';
+
+        let expectedStatusCode = 500;
+        let expectedBody = {
+            error: 'Failed to make call'
+        };
+
+        nock('https://' + discordWebhookUrl.hostname + ':443')
+            .post(discordWebhookUrl.path)
+            .reply(500, expectedBody);
+        let payload = utility.buildDiscordEmbeddedMessage(title,
+            message, messageColor, branch, sha, buildNumber, triggeredBy, actionUrl);
+        return utility.executeDiscordWebhookPost(discordWebhookUrl, payload).then(data => {
+            expect(data).toBeFalsy();
+        }).catch(err => {
+            expect(err).toEqual(`Failed to make call to Discord Webhook Status ('${expectedStatusCode}') Body => ${JSON.stringify(expectedBody)}`);
+        });
+    });
+
+    test('When I fail to call the Discord Webhook I should be returned a rejected promise with an appropriate message stating code and url called.', async () => {
+        let discordWebhookUrl = {
+            hostname: 'discord.com',
+            path: '/api/webhooks/852584010806329446/2cwT5MBSPSdLMbv_st4ZphOsQg_PILmE7wBr-6LM9u33sypLgOGG5fWHPelSHPT29IrE'
+        };
+        let title = 'Sample Title';
+        let message = 'Sample Message';
+        let messageColor = '54321';
+        let branch = 'Branchy';
+        let sha = '123asdf098fdsa098fdsa098qwe';
+        let buildNumber = '404';
+        let triggeredBy = 'Pacman';
+        let actionUrl = 'https://action.com/packed/url';
+        let expectedBody = {
+            error: 'Failed to make call'
+        };
+
+        nock('https://' + discordWebhookUrl.hostname + ':443')
+            .post(discordWebhookUrl.path)
+            .replyWithError( expectedBody);
+        let payload = utility.buildDiscordEmbeddedMessage(title,
+            message, messageColor, branch, sha, buildNumber, triggeredBy, actionUrl);
+        return utility.executeDiscordWebhookPost(discordWebhookUrl, payload).then(data => {
+            expect(data).toBeFalsy();
+        }).catch(err => {
+            expect(err).toEqual(`Failed to make call to Discord Webhook due to => ${JSON.stringify(expectedBody)}`);
         });
     });
 });
