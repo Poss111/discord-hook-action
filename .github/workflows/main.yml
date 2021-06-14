@@ -13,9 +13,9 @@ on:
       - edited
 
 jobs:
-  runTests:
+  testDiscordActionJob:
     runs-on: ubuntu-latest
-    name: Run expect audit checks for change
+    name: A job to test out the discord github hook action
     steps:
       - name: Cache node modules
         uses: actions/cache@v2
@@ -40,10 +40,6 @@ jobs:
           name: coverage-artifact
           path: coverage
 
-  testDiscordActionJob:
-    runs-on: ubuntu-latest
-    name: A job to test out the discord github hook action
-    steps:
       - name: Test Step for Discord Action
         id: discordAction
         uses: Poss111/discord-hook-action@v1.6.8
