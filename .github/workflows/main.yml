@@ -23,7 +23,7 @@ jobs:
         id: extract_branch
 
       - name: Print Branch Name
-        run: echo build $steps.extract_branch.outputs.branch
+        run: echo ${{ steps.extract_branch.outputs.branch }}
 
       - uses: actions/checkout@v2
 
