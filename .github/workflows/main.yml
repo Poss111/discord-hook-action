@@ -49,7 +49,7 @@ jobs:
 
       - name: Test Step for Discord Action
         id: discordAction
-        uses: Poss111/discord-hook-action@${{ steps.extract_branch.outputs.branch }}
+        uses: "Poss111/discord-hook-action@${{ steps.extract_branch.outputs.branch }}"
         with:
           discord-hook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: 'Sample Title'
