@@ -17,6 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to test out the discord github hook action
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -44,7 +49,7 @@ jobs:
 
       - name: Test Step for Discord Action
         id: discordAction
-        uses: Poss111/discord-hook-action@v1.6.8
+        uses: Poss111/discord-hook-action@${{ steps.extract_branch.outputs.branch }}
         with:
           discord-hook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           title: 'Sample Title'
