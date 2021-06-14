@@ -46,7 +46,7 @@ Here is a quick snippet to speed up integrating this into your workflow. ***NOTE
     steps:
       - name: Test Step for Discord Action
         id: discordAction
-        uses: Poss111/discord-hook-action@v1.6.8
+        uses: Poss111/discord-hook-action@v1.6.10
         with:
           discord-hook-url: 'https://replace/with/your/discord/webhook/url'
           title: 'Sample Title'
