@@ -2,7 +2,7 @@
 
 ***Author***        : [Poss111](https://github.com/Poss111)
 
-***Latest Version***: v1.6.11 [![DiscordWebhookCICD](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml/badge.svg?branch=v1.6.11)](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml)
+***Latest Version***: v1.6.12 [![DiscordWebhookCICD](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml/badge.svg?branch=v1.6.12)](https://github.com/Poss111/discord-hook-action/actions/workflows/main.yml)
 
 ## Table of Contents
 - [Inputs](#Inputs)  
@@ -17,17 +17,17 @@
 
 This is a simple discord hook action to send a message to your discord server upon building for real time notifications of build status.
 
-| Inputs | Optional | Description |
-| -------- | ----------- | ------ |
-| discord-hook-url | No | The webhook url created for your discord server to post your expected message to |
-| title | Yes | Title to be given to your embedded message |
-| message | Yes | Message to be given with embedded message |
-| message-color | Yes | Color to be given alongside embedded message |
-| branch | Yes | The git branch for the build |
-| sha | Yes | The sha of the git commit being built |
-| buildNumber | Yes | The build number of the current action | 
-| triggeredBy | Yes | Who has triggered this action |
-| actionUrl | Yes | The link to the job being built |
+| Inputs | Optional | Description | Default (If applicable) |
+| -------- | ----------- | ------ | ----------------------- |
+| discord-hook-url | No | The webhook url created for your discord server to post your expected message to | |
+| title | Yes | Title to be given to your embedded message | Github Action Notification |
+| message | Yes | Message to be given with embedded message | Here is a quick update! |
+| message-color | Yes | Color to be given alongside embedded message | 65345 | 
+| branch | Yes | The git branch for the build | <Name of your current branch> |
+| sha | Yes | The sha of the git commit being built | <Sha of your current commit> |
+| buildNumber | Yes | The build number of the current action | <Number of build> | 
+| triggeredBy | Yes | Who has triggered this action | <Who it was triggered by> |
+| actionUrl | Yes | The link to the job being built | <The link to your job> |
 
 ## Outputs
 
@@ -46,7 +46,7 @@ Here is a quick snippet to speed up integrating this into your workflow. ***NOTE
     steps:
       - name: Test Step for Discord Action
         id: discordAction
-        uses: Poss111/discord-hook-action@v1.6.11
+        uses: Poss111/discord-hook-action@v1.6.12
         with:
           discord-hook-url: 'https://replace/with/your/discord/webhook/url'
           title: 'Sample Title'

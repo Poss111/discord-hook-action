@@ -2,11 +2,18 @@ const core = require('@actions/core');
 
 class RetrieveInputs  {
 
+    defaultTitle = 'Github Action Notification';
+    defaultMessage = 'Here is a quick update!';
+    defaultColor = '65345';
+
     retrieveAllInputs() {
         let discordWebhookUrl = core.getInput('discord-hook-url');
-        let title = core.getInput('title');
-        let message = core.getInput('message');
-        let messageColor = core.getInput('message-color');
+        let title = core.getInput('title')
+            ? core.getInput('title') : this.defaultTitle;
+        let message = core.getInput('message')
+            ? core.getInput('message') : this.defaultMessage;
+        let messageColor = core.getInput('message-color')
+            ? core.getInput('message-color') : this.defaultColor;
         let branch = core.getInput('branch');
         let sha = core.getInput('sha');
         let buildNumber = core.getInput('buildNumber');
