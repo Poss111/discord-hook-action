@@ -1,5 +1,5 @@
 module.exports = {
-  username: "Discord Action Bot",
+  username: "Github Action Bot",
   avatar_url: "https://i.imgur.com/Hrbi1Ht.jpg",
   embeds: [
     {
